@@ -4,9 +4,6 @@
     <test name="MainTest" parallel="false">
         <classes>
             <class name="LoginTest">
-                <methods>
-                    <include name="checkRegistrationFormData"/>
-                </methods>
             </class>
         </classes>
     </test>

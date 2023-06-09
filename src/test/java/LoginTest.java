@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class LoginTest extends BaseTest {
@@ -21,7 +20,8 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void testLogin() {
-
+        loginFormPage.clickNavigationButton();
+        loginFormPage.clickRegisterButton();
         loginFormPage.enterLogin("johnsons");
         loginFormPage.enterPassword("111222");
         loginFormPage.clickLoginButton();

@@ -1,10 +1,14 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="MainTest">
 
-    <test name="MainTest" parallel="false">
+    <test name="LoginTest" parallel="false">
         <classes>
-            <class name="LoginTest">
-            </class>
+            <class name="LoginTest"/>
+        </classes>
+    </test>
+    <test name="NavigationTest" parallel="false">
+        <classes>
+            <class name="NavigationTest"/>
         </classes>
     </test>
 </suite>

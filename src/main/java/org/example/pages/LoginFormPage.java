@@ -11,6 +11,12 @@ public class LoginFormPage extends BasePage {
 
     protected WebDriver driver;
 
+    @FindBy(xpath = "//div[@id='navpanel-btn']")
+    private WebElement navigationButton;
+
+    @FindBy(xpath = "//a[@href='/?do=register'][1]")
+    private WebElement registerButton;
+
     @FindBy(xpath = "//input[@name='login_name']")
     private WebElement loginField;
 
@@ -22,6 +28,14 @@ public class LoginFormPage extends BasePage {
 
     public LoginFormPage(WebDriver driver) {
         super(driver);
+    }
+
+    public void clickNavigationButton() {
+        navigationButton.click();
+    }
+
+    public void clickRegisterButton() {
+        registerButton.click();
     }
 
     public void enterLogin(String login) {

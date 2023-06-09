@@ -30,25 +30,43 @@ public class LoginFormPage extends BasePage {
         super(driver);
     }
 
-    public void clickNavigationButton() {
-        navigationButton.click();
+    public WebElement getNavigationButton() {
+        return navigationButton;
     }
 
-    public void clickRegisterButton() {
-        registerButton.click();
+    public WebElement getRegisterButton() {
+        return registerButton;
     }
 
-    public void enterLogin(String login) {
-        Waiters.waitForVisibility(loginField);
-        loginField.sendKeys(login);
+    public WebElement getLoginField() {
+        return loginField;
     }
 
-    public void enterPassword(String password) {
-        Waiters.waitForVisibility(passwordField);
-        passwordField.sendKeys(password);
+    public WebElement getPasswordField() {
+        return passwordField;
     }
 
-    public void clickLoginButton() {
-        loginButton.click();
+    public WebElement getLoginButton() {
+        return loginButton;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

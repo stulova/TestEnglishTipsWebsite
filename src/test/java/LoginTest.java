@@ -1,5 +1,8 @@
 import org.example.driver.DriverManager;
+import org.example.models.UserData;
 import org.example.pages.LoginFormPage;
+import org.example.steps.LoginFormSteps;
+import org.example.utils.JsonReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,24 +13,20 @@ import org.testng.annotations.Test;
 public class LoginTest extends BaseTest {
 
     protected WebDriver driver;
-    private LoginFormPage loginFormPage;
+    private LoginFormSteps loginFormSteps;
 
     @BeforeClass
     public void preparationForTest() {
         driver = DriverManager.getDriver();
-        loginFormPage = new LoginFormPage(driver);
+        loginFormSteps = new LoginFormSteps(driver);
     }
 
-    @Test
-    public void testLogin() {
-        loginFormPage.clickNavigationButton();
-        loginFormPage.clickRegisterButton();
-        loginFormPage.enterLogin("johnsons");
-        loginFormPage.enterPassword("111222");
-        loginFormPage.clickLoginButton();
+    @Test(dataProvider = "userData", dataProviderClass = JsonReader.class)
+    public void testLogin(UserData userData) {
+        loginFormSteps.openAndFillLoginForm(userData);
 
         WebElement userDataText = driver.findElement(By.xpath("//td[@id='hsbc_auth']"));
-
         Assert.assertTrue(userDataText.getText().contains("johnsons"));
     }
 }
+
